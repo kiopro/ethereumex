@@ -2,6 +2,10 @@ defmodule Ethereumex.Client.Server do
   use GenServer
 
   @moduledoc false
+  
+  def init(args) do
+    {:ok, args}
+  end
 
   def start_link(module) when is_atom(module) do
     GenServer.start_link(__MODULE__, {module, 0}, name: module)
