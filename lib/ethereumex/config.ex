@@ -3,7 +3,7 @@ defmodule Ethereumex.Config do
 
   @spec rpc_url() :: binary()
   def rpc_url do
-    case Application.get_env(:ethereumex, :url) do
+    case Application.get_env(:ethereumex, :url) || System.get_env("ETHEREUM_URL") do
       url when is_binary(url) and url != "" ->
         url
 
